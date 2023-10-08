@@ -1,4 +1,24 @@
-= Template: Rust
+= Template: Rust (short description)
+
+== Getting started
+
+. Download and unpack the asset for your platform from the https://github.com/andreaslongo/template-rust/releases[release page].
+** *Linux*: https://github.com/andreaslongo/template-rust/releases/latest/download/template-rust-x86_64-unknown-linux-musl.tar.gz[template-rust-x86_64-unknown-linux-musl.tar.gz]
+** *Windows*: https://github.com/andreaslongo/template-rust/releases/latest/download/template-rust-x86_64-pc-windows-msvc.zip[template-rust-x86_64-pc-windows-msvc.zip]
+
+. Open a terminal and run the program.
+
+[source, bash]
+----
+# Linux
+al@linux ~ $ ./template-rust
+----
+
+[source, powershell]
+----
+# Windows
+PS C:\Users\al> .\template-rust.exe --help
+----
 
 == Contributing
 
@@ -13,7 +33,7 @@ container/build.sh
 container/run.sh
 ----
 
-Inside the container, use `cargo` to run some workflows.
+From inside the container, you can then run some workflows.
 
 [source, bash]
 ----
@@ -21,3 +41,9 @@ cargo test    # run tests
 cargo clippy  # run linters
 cargo run
 ----
+
+== License
+
+Copyright (C) 2023 Andreas Longo
+
+GNU General Public License v3.0 or later
