@@ -2,11 +2,14 @@
 name = "template-rust"
 version = "0.1.0"
 edition = "2021"
-authors = ["Andreas Longo"]
+authors = ["Andreas Longo <git@andreaslongo.com>"]
 license = "GPL-3.0-or-later"
 repository = "https://github.com/andreaslongo/template-rust"
+homepage = "https://github.com/andreaslongo/template-rust"
+description = ""
 
 [dependencies]
 anstream = "0.6.4"
 clap = { version = "4.4.6", features = ["derive"] }
+human-panic = "1.2.1"
 owo-colors = "3.5.0"

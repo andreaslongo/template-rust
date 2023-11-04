@@ -1,4 +1,4 @@
-= Template: Rust (short description)
+= Rust: Template (short description)
 
 == Getting started
 
