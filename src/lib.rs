@@ -1,11 +1,11 @@
-//! A library crate
+//! # A library crate
 
-#![warn(
-    clippy::pedantic,
-    missing_debug_implementations,
-    missing_docs,
-    rust_2018_idioms
-)]
+// Lints:
+#![warn(clippy::pedantic)]
+#![warn(deprecated_in_future)]
+#![warn(missing_debug_implementations)]
+#![warn(missing_docs)]
+#![warn(rust_2018_idioms)]
 
 /// Calculates `left` + `right` and returns the result.
 ///
