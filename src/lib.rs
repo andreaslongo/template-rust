@@ -7,11 +7,13 @@
     rust_2018_idioms
 )]
 
-/// An example function which adds left and right.
+/// Calculates `left` + `right` and returns the result.
+///
+/// # Examples
+///
 /// ```
-/// # use template_rust::add;
-/// add(1, 2) == 3;
-/// add(5, 5) == 10;
+/// assert_eq!(template_rust::add(1, 2), 3);
+/// assert_eq!(template_rust::add(5, 5), 10);
 /// ```
 #[must_use]
 pub fn add(left: usize, right: usize) -> usize {
