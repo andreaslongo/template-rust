@@ -5,8 +5,9 @@ edition = "2021"
 authors = ["Andreas Longo <git@andreaslongo.com>"]
 license = "GPL-3.0-or-later"
 repository = "https://github.com/andreaslongo/template-rust"
-homepage = "https://github.com/andreaslongo/template-rust"
-description = ""
+description = "A Rust package template"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 ###############################################################################
