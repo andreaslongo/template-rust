@@ -1,24 +1,31 @@
-= Rust: Template (short description)
+= Template: Rust
+
+(short description)
 
 == Getting started
 
-. Download and unpack the asset for your platform from the https://github.com/andreaslongo/template-rust/releases[release page].
+. Download and unpack the latest https://github.com/andreaslongo/template-rust/releases[binary release] for your platform:
 ** *Linux*: https://github.com/andreaslongo/template-rust/releases/latest/download/template-rust-x86_64-unknown-linux-musl.tar.gz[template-rust-x86_64-unknown-linux-musl.tar.gz]
 ** *Windows*: https://github.com/andreaslongo/template-rust/releases/latest/download/template-rust-x86_64-pc-windows-msvc.zip[template-rust-x86_64-pc-windows-msvc.zip]
 
 . Open a terminal and run the program.
 
-[,bash]
+[,console]
 ----
-# Linux
-al@linux ~ $ ./template-rust
+$ ./template-rust --help      # Linux
+$ .\template-rust.exe --help  # Windows
 ----
 
-[,powershell]
-----
-# Windows
-PS C:\Users\al> .\template-rust.exe --help
-----
+== Features
+
+== Changelog
+
+All notable changes will be documented here.
+
+The format is based on https://keepachangelog.com/en/1.1.0/[Keep a Changelog],
+and this project adheres to https://semver.org/spec/v2.0.0.html[Semantic Versioning].
+
+=== [Unreleased]
 
 == Contributing
 
@@ -27,20 +34,20 @@ The best way to get started is to build and run a local dev container.
 You can use https://podman.io[Podman] or any other OCI compliant container manager.
 The dev container has all the required dependencies for working with the project.
 
-[,bash]
+[,console]
 ----
-container/build.sh
-container/run.sh
+$ container/build.sh
+$ container/run.sh
 ----
 
 From inside the container, you can then run some workflows.
 
-[,bash]
+[,console]
 ----
-cargo fmt && cargo clippy --all-targets  # run code formatter and linter
-cargo test  # run tests
-cargo doc   # build the docs
-cargo run   # run the binary crate
+$ cargo fmt && cargo clippy --all-targets  # run code formatter and linter
+$ cargo test  # run tests
+$ cargo doc   # build the docs
+$ cargo run   # run the binary crate
 ----
 
 === Useful resources

@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Andreas Longo <git@andreaslongo.com>"]
 license = "GPL-3.0-or-later"
 repository = "https://github.com/andreaslongo/template-rust"
-description = "A Rust package template"
+description = "A Rust project template"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -14,7 +14,8 @@ description = "A Rust package template"
 # CLI
 ###############################################################################
 # anstream = "0.6.4"
-# clap = { version = "4.4.6", features = ["derive"] }
+# anyhow = "1.0.86"
+# clap = { version = "4.5.7", features = ["derive"] }
 # human-panic = "1.2.1"
 # owo-colors = "3.5.0"
 
@@ -24,6 +25,8 @@ description = "A Rust package template"
 ###############################################################################
 # Web
 ###############################################################################
+# # Client
+# reqwest = { version = "0.12.5", features = ["blocking", "json"] }
 # # Web framework
 # axum = "0.7.4"
 # serde = { version = "1.0.196", features = ["derive"] }
@@ -41,3 +44,6 @@ description = "A Rust package template"
 [dev-dependencies]
 # # Web tests
 # tower-service = "0.3.2"
+# # CLI tests
+# assert_cmd = "2.0.14"
+# predicates = "3.1.0"

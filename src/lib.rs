@@ -7,6 +7,9 @@
 #![warn(missing_docs)]
 #![warn(rust_2018_idioms)]
 
+/// An opaque error type for all kinds of application errors
+pub type AppError = Box<dyn std::error::Error + Send + Sync + 'static>;
+
 /// Calculates `left` + `right` and returns the result.
 ///
 /// # Examples
