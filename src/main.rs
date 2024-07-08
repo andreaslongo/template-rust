@@ -7,10 +7,7 @@
 #![warn(missing_docs)]
 #![warn(rust_2018_idioms)]
 
-use template_rust::AppError;
-
-fn main() -> Result<(), AppError> {
+fn main() {
     let result = template_rust::add(2, 2);
     println!("2 + 2 = {result}");
-    Ok(())
 }
