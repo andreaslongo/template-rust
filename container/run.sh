@@ -14,9 +14,12 @@ podman container start --attach --interactive "$(basename ${parent_dir})" 2>/dev
     --interactive \
     --name="$(basename ${parent_dir})" \
     --pull=newer \
+    --rm \
     --tty \
     --user ${uid}:${gid} \
     --userns keep-id:uid=${uid},gid=${gid} \
     --volume "${parent_dir}:/home/appuser/$(basename ${parent_dir}):Z,rw" \
+    --volume "rust_cargo:/usr/local/cargo:Z,rw" \
+    --volume "rust_rustup:/usr/local/rustup:Z,rw" \
     --workdir "/home/appuser/$(basename ${parent_dir})" \
         localhost/"$(basename ${parent_dir})":latest
