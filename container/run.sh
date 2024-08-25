@@ -19,9 +19,6 @@ readonly local parent_dir=$(dirname ${script_dir})
 readonly local uid=1000
 readonly local gid=1000
 
-# TODO:
-#  --volume "rust_cargo:/usr/local/cargo:Z,rw" \
-#  --volume "rust_rustup:/usr/local/rustup:Z,rw" \
 # Use --publish <host_port>:<container_port> to enable networking.
 # Use --rm to remove the container after exit.
 # Use --env-file "${parent_dir}/.env" to read environment variables from a file.
@@ -37,6 +34,8 @@ podman container start --attach --interactive "$(basename ${parent_dir})" 2>/dev
     --volume "${HOME}/.cache/pre-commit:/home/appuser/.cache/pre-commit:z,rw" \
     --volume "${HOME}/.cache/rattler:/home/appuser/.cache/rattler:z,rw" \
     --volume "${HOME}/.pixi:/home/appuser/.pixi:z,rw" \
+    --volume "${HOME}/.cargo:/home/appuser/.cargo:z,rw" \
+    --volume "${HOME}/.rustup:/home/appuser/.rustup:z,rw" \
     --volume "${parent_dir}:/home/appuser/$(basename ${parent_dir}):Z,rw" \
     --workdir "/home/appuser/$(basename ${parent_dir})" \
         localhost/"$(basename ${parent_dir})":latest

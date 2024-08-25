@@ -157,7 +157,7 @@ RUN set -o errexit \
 USER appuser
 WORKDIR /home/appuser/app
 
-# TODO: Adapt this for rust.
+# TODO: Copy artifacts for Rust.
 # Copy the prod environment into the prod container.
 # NOTE: The "prefix" (path) needs to stay the same as in the build container.
 COPY \

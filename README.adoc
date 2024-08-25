@@ -52,6 +52,7 @@ $ pixi run clean    # remove cached project files
 $ pixi clean        # remove environments
 ----
 
+// TODO: Configure pixi tasks for Rust.
 // [,console]
 // ----
 // $ cargo fmt && cargo clippy --all-targets  # run code formatter and linter
