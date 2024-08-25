@@ -2,4 +2,8 @@
 **
 
 # Allow the following explicitly
-# !rust-toolchain
+# !pixi.lock
+# !pixi.toml
+# !Cargo.toml
+# !Cargo.lock
+# !src
