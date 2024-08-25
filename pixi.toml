@@ -12,20 +12,20 @@ dev = { depends-on = ["fmt", "git-hooks", "lint", "test"] }
 build = "cargo build"
 start = "cargo run"
 clean = "cargo clean"
+
 [dependencies]
 rust = ">=1.80.1,<2"
 # openssl = ">=3.3.1,<4"
 # pkg-config = ">=0.29.2,<0.30"  # for openssl
 # compilers = ">=1.7.0,<2"       # for openssl
 
-
-[feature.dev]
 [feature.dev.tasks]
 fmt = "cargo fmt"
 lint = "cargo clippy --all-targets"
 test = "cargo test"
 git-hooks = "pre-commit run --all"
 git-hooks-update = "pre-commit autoupdate --freeze"
+
 [feature.dev.dependencies]
 git = "*"  # required for running git hooks via pre-commit
 pre-commit = "*"
