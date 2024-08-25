@@ -1,5 +1,6 @@
 # pixi environments
 .pixi
+*.egg-info
 
 # https://raw.githubusercontent.com/github/gitignore/main/Rust.gitignore
 # Commit: d15076e
