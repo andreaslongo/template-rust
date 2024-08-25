@@ -3,24 +3,29 @@ name = "template-rust"
 channels = ["conda-forge"]
 platforms = ["linux-64"]
 
+[environments]
+default = { solve-group = "default-group", features = ["dev"] }
+prod = { solve-group = "default-group" }
+
 [tasks]
+dev = { depends-on = ["fmt", "git-hooks", "lint", "test"] }
 build = "cargo build"
 start = "cargo run"
-test = "cargo test"
 clean = "cargo clean"
-
 [dependencies]
 rust = ">=1.80.1,<2"
 openssl = ">=3.3.1,<4"
 pkg-config = ">=0.29.2,<0.30"
 compilers = ">=1.7.0,<2"
 
-[feature.lint]
-[feature.lint.tasks]
+
+[feature.dev]
+[feature.dev.tasks]
 fmt = "cargo fmt"
 lint = "cargo clippy --all-targets"
+test = "cargo test"
 git-hooks = "pre-commit run --all"
 git-hooks-update = "pre-commit autoupdate --freeze"
-[feature.lint.dependencies]
+[feature.dev.dependencies]
 git = "*"  # required for running git hooks via pre-commit
 pre-commit = "*"
