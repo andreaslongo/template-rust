@@ -15,9 +15,9 @@ clean = "cargo clean"
 
 [dependencies]
 rust = ">=1.80.1,<2"
+compilers = ">=1.7.0,<2"  # contains linker (cc)
 # openssl = ">=3.3.1,<4"
 # pkg-config = ">=0.29.2,<0.30"  # for openssl
-# compilers = ">=1.7.0,<2"       # for openssl
 
 [feature.dev.tasks]
 fmt = "cargo fmt"
