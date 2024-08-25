@@ -2,7 +2,9 @@
 **
 
 # Allow the following explicitly
+!Cargo.lock
+!Cargo.toml
 !pixi.lock
 !pixi.toml
-!pyproject.toml
+# !pyproject.toml
 !src
