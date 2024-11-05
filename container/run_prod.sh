@@ -21,4 +21,5 @@ podman container run \
     --rm \
     --user ${uid}:${gid} \
     --userns keep-id:uid=${uid},gid=${gid} \
-        localhost/"$(basename ${parent_dir})_prod":latest
+        localhost/"$(basename ${parent_dir})_prod":latest \
+            "${@}"

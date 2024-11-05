@@ -8,6 +8,7 @@
 # * https://github.com/debuerreotype/docker-debian-artifacts
 # * https://github.com/docker-library/official-images
 
+readonly local base_image=docker.io/library/debian:bookworm-slim
 readonly local script_dir=$( cd "$( dirname "${BASH_SOURCE[0]:-${(%):-%x}}" )" && pwd )
 readonly local parent_dir=$(dirname ${script_dir})
 
@@ -18,7 +19,7 @@ readonly local parent_dir=$(dirname ${script_dir})
 # Use --pull=always to do this also for images without `latest` tags.
 # NOTE: Named volumes not supported during build, only bind-mounts are supported.
 podman image build \
-    --build-arg=BASE_IMAGE=docker.io/library/debian:bookworm-slim \
+    --build-arg=BASE_IMAGE="${base_image}" \
     --file="${script_dir}/Containerfile" \
     --ignorefile="${script_dir}/Containerignore_prod" \
     --no-cache \
@@ -26,8 +27,10 @@ podman image build \
     --tag="$(basename ${parent_dir})_prod":"$(date --iso-8601)" \
     --tag="$(basename ${parent_dir})_prod":latest \
     --target=prod \
-    --volume "${HOME}/.cache/huggingface:/root/.cache/huggingface:z,rw" \
-    --volume "${HOME}/.cache/pre-commit:/root/.cache/pre-commit:z,rw" \
-    --volume "${HOME}/.cache/rattler:/root/.cache/rattler:z,rw" \
-    --volume "${HOME}/.pixi:/root/.pixi:z,rw" \
+    --volume "${HOME}/.cache/huggingface:/home/appuser/.cache/huggingface:z,rw" \
+    --volume "${HOME}/.cache/pre-commit:/home/appuser/.cache/pre-commit:z,rw" \
+    --volume "${HOME}/.cache/rattler:/home/appuser/.cache/rattler:z,rw" \
+    --volume "${HOME}/.cargo:/home/appuser/.cargo:z,rw" \
+    --volume "${HOME}/.pixi:/home/appuser/.pixi:z,rw" \
+    --volume "${HOME}/.rustup:/home/appuser/.rustup:z,rw" \
         "${parent_dir}"
