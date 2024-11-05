@@ -118,6 +118,7 @@ COPY --chown=appuser:appuser . .
 # Workaround: Run as root.
 USER root
 
+# TODO: Use pixi run --frozen or --locked.
 RUN set -o errexit \
     set -o nounset \
     set -o pipefail \
@@ -128,8 +129,8 @@ RUN set -o errexit \
 
 # Create the shell-hook bash script to activate the environment.
 # Extend the script to run the command passed to the container.
-RUN pixi shell-hook --environment prod > ./shell-hook.sh
-RUN echo 'exec "$@"' >> ./shell-hook.sh
+# RUN pixi shell-hook --environment prod > ./shell-hook.sh
+# RUN echo 'exec "$@"' >> ./shell-hook.sh
 
 
 
@@ -165,18 +166,19 @@ WORKDIR /home/appuser/app
 COPY \
     --from=build \
     --chown=appuser:appuser \
-        /home/appuser/app/.pixi/envs/prod \
-        /home/appuser/app/.pixi/envs/prod
-COPY \
-    --from=build \
-    --chown=appuser:appuser \
-    --chmod=0755 \
-        /home/appuser/app/shell-hook.sh \
-        /home/appuser/app/shell-hook.sh
+        /home/root/bin \
+        /home/appuser/bin
+# COPY \
+#     --from=build \
+#     --chown=appuser:appuser \
+#     --chmod=0755 \
+#         /home/appuser/app/shell-hook.sh \
+#         /home/appuser/app/shell-hook.sh
 
 # Set the entrypoint to the shell-hook script. This activates the environment
 # and runs the command.
-ENTRYPOINT ["/bin/bash", "/home/appuser/app/shell-hook.sh"]
+# ENTRYPOINT ["/bin/bash", "/home/appuser/app/shell-hook.sh"]
+ENTRYPOINT ["/bin/bash"]
 
 # Default command to run. Can be changed during container startup.
-CMD ["python", "-m", "template_python"]
+CMD ["~/bin/template-rust"]
