@@ -21,8 +21,6 @@ rust = ">=1.81.0,<2"
 [feature.prod.tasks]
 # TODO: Use cargo build --frozen or --locked.
 build = "cargo build --release"
-# TODO: Do not overwrite existing files with cp.
-install = "mkdir -p $HOME/bin && cp ./target/release/template-rust $HOME/bin/"
 
 [feature.dev.tasks]
 fmt = "cargo fmt"

@@ -98,7 +98,7 @@ RUN set -o errexit \
     set -o nounset \
     set -o pipefail \
     set -o xtrace \
-    && echo 'eval "$(pixi completion --shell bash)"' >> ~/.bashrc \
+    && echo 'eval "$(pixi completion --shell bash)"' >> .bashrc \
     && pixi info
 
 
@@ -124,13 +124,7 @@ RUN set -o errexit \
     set -o pipefail \
     set -o xtrace \
     && pixi info \
-    && pixi -vvv --no-progress run build \
-    && pixi -vvv --no-progress run install
-
-# Create the shell-hook bash script to activate the environment.
-# Extend the script to run the command passed to the container.
-# RUN pixi shell-hook --environment prod > ./shell-hook.sh
-# RUN echo 'exec "$@"' >> ./shell-hook.sh
+    && pixi -vvv --no-progress run build
 
 
 
@@ -160,25 +154,12 @@ RUN set -o errexit \
 USER appuser
 WORKDIR /home/appuser/app
 
-# TODO: Copy artifacts for Rust.
-# Copy the prod environment into the prod container.
-# NOTE: The "prefix" (path) needs to stay the same as in the build container.
 COPY \
     --from=build \
     --chown=appuser:appuser \
-        /home/root/bin \
-        /home/appuser/bin
-# COPY \
-#     --from=build \
-#     --chown=appuser:appuser \
-#     --chmod=0755 \
-#         /home/appuser/app/shell-hook.sh \
-#         /home/appuser/app/shell-hook.sh
-
-# Set the entrypoint to the shell-hook script. This activates the environment
-# and runs the command.
-# ENTRYPOINT ["/bin/bash", "/home/appuser/app/shell-hook.sh"]
-ENTRYPOINT ["/bin/bash"]
+    --chmod=0755 \
+        /home/appuser/app/target/release/template-rust \
+        /home/appuser/app/bin/template-rust
 
 # Default command to run. Can be changed during container startup.
-CMD ["~/bin/template-rust"]
+CMD ["./bin/template-rust"]
