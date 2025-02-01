@@ -9,6 +9,7 @@
 
 /// An opaque error type for all kinds of application errors
 pub type AppError = Box<dyn std::error::Error + Send + Sync + 'static>;
+/// pub type AppError = anyhow::Error;
 
 /// Calculates `left` + `right` and returns the result.
 ///
